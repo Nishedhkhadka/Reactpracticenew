@@ -1,31 +1,8 @@
+import App from "./App";
+function Student({ name, isloggedin }) {
+  const Loginmessage = <p className="text-red-400 size-4">Please login to see message</p>;
+  const Greeting = <p className="text-green-300 text-lg bg-slate-800 p-2" >HI {name} how are you? 💖</p>;
 
-
-import PropTypes from "prop-types"
-function Student({
-  name="guest",
-  age=8,
-  isStudent=false
-}) {
-  return (
-    <>
-    <div className="m-6  border-2 inline-block font-5" >
-          <p>Name:{name} </p>
-      <p>Age:{age}</p>
-      <p>Student:{isStudent ? "verified" : "unverified"} </p>
-    </div>
-  
-    </>
-  );
-}
-
-
-
-Student.propTypes ={ 
-  name : PropTypes.string,  
-  age: PropTypes.number,
-  isStudent: PropTypes.bool,
-
+  return isloggedin ? Greeting : Loginmessage;
 }
 export default Student;
-
-
